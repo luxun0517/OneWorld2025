@@ -50,8 +50,13 @@ env.Alias("compiledb", compilation_db)
 
 env = SConscript("godot-cpp/SConstruct", {"env": env, "customs": customs})
 
+# 添加 glm 库
+env.Append(CPPPATH=["cesium-native/extern/glm/"])
+
 env.Append(CPPPATH=["src/"])
 sources = Glob("src/*.cpp")
+# 往sources添加文件路径下所有的cpp
+sources += Glob("src/http/*.cpp")
 
 file = "{}{}{}".format(libname, env["suffix"], env["SHLIBSUFFIX"])
 

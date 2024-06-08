@@ -4,14 +4,16 @@
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
 
+#include "http/HTTPManager.h"
 using namespace godot;
+using namespace CesiumForGodot;
 
 void initialize_gdextension_types(ModuleInitializationLevel p_level)
 {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
-	//ClassDB::register_class<YourClass>();
+	ClassDB::register_class<HTTPManager>();
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
